@@ -1,5 +1,5 @@
-import DefaultHOC from "./HOC/Default.HOC";
-import Home from "./pages/Home.page";
+import DefaultHOC from "./HOC/Default.HOC.jsx";
+import Home from "./pages/Home.page.jsx";
 
 
 function App() {
