@@ -3,9 +3,14 @@ import React from "react"
 const Poster = (props) => {
     return (
         <>
-        <div className="flex flex-col items-start gap-2 px-3">
-            <div className="h-80">
-                <img src={props.src} alt={props.alt} className="w-full h-full rounded-xl"/>
+        <div className="container w-full h-full flex flex-col items-start gap-2 px-3">
+            <div className="h-100 w-full">
+                <img src={props.src} alt={props.alt} 
+                    className={
+                        `w-full h-2/3 ${
+                            props.isCircle ? "rounded-full": "rounded-xl"
+                        }`
+                    }/>
             </div>
             <h3
                 className={`text-lg font-bold ${
