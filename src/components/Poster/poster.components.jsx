@@ -4,10 +4,10 @@ const Poster = (props) => {
     return (
         <>
         <div className="container w-full h-full flex flex-col items-start gap-2 px-3">
-            <div className="h-100 w-full">
+            <div className="h-2/3 w-full">
                 <img src={props.src} alt={props.alt} 
                     className={
-                        `w-full h-2/3 ${
+                        `w-full h-full ${
                             props.isCircle ? "rounded-full": "rounded-xl"
                         }`
                     }/>
