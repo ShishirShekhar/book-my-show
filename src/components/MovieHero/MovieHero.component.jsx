@@ -5,7 +5,24 @@ import { RiMovie2Line } from "react-icons/ri"
 
 import cast from "./casts.components";
 import crew from "./crew.components";
-import PosterSlider from "../PosterSlider/PosterSlider.components";
+import CPosterSlider from "../PosterSlider/CSlider.components";
+
+
+const lanuchRazorPay = () => {
+    let options = {
+        key: "rzp_test_Ap6ayPjAJtVjul",
+        amount: 50000,
+        currency: "INR",
+        name: "Book My Show",
+        description: "Movie Purchase on Rental",
+        image: "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+        handler: () => { alert("Payment Done") },
+        theme: {color: "#c4242d"}
+    };
+
+    let rzp = new window.Razorpay(options);
+    rzp.open();
+}
 
 const MovieMd = () => {
     return (
@@ -123,7 +140,9 @@ const MovieLg = () => {
                     
                     <div className="container w-full h-full">
                         <div className="bg-red-600 rounded px-1 py-2 w-1/4 flex justify-center">
-                            <p className="font-bold text-xl text-white">Book tickets</p>
+                            <p className="font-bold text-xl text-white cursor-pointer" onClick={lanuchRazorPay}>
+                                Book tickets
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -175,14 +194,14 @@ const MovieDetail = (props) => {
             </div>
 
             <div>
-                <PosterSlider title="Cast" images={cast} isDark={false} isCircle={true} />
+                <CPosterSlider title="Cast" images={cast} isDark={false} isCircle={true} />
             </div>
 
             <div className="h-1 w-full bg-gray-200 rounded">
             </div>
 
             <div>
-                <PosterSlider title="Crew" images={crew} isDark={false} isCircle={true} />
+                <CPosterSlider title="Crew" images={crew} isDark={false} isCircle={true} />
             </div>
 
         </div>
