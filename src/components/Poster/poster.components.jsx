@@ -5,7 +5,7 @@ const Poster = (props) => {
         <>
         <div className="container w-full h-full flex flex-col items-start gap-2 px-3">
             <div className="h-2/3 w-full">
-                <img src={props.src} alt={props.alt} 
+                <img src={`https://image.tmdb.org/t/p/original${props.poster_path}`} alt={props.title} 
                     className={
                         `w-full h-full ${
                             props.isCircle ? "rounded-full": "rounded-xl"
@@ -22,7 +22,7 @@ const Poster = (props) => {
             className={`text-lg ${
                     props.isDark ? "text-white": "text-gray-700"
                 }`}>
-                {props.subtitle}
+                {`Popularity: ${props.popularity}`}
             </p>
         </div>
         </>

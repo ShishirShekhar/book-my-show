@@ -6,6 +6,14 @@ import Home from "./pages/Home.page.jsx";
 import Moive from "./pages/Movie.page.jsx";
 import Play from "./pages/Play.page.jsx";
 
+import axios from "axios";
+
+
+// axios default settings
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
+axios.defaults.params = {};
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY;
+
 
 function App() {
   return (

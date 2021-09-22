@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HeroSlider from "react-slick";
+import axios from "axios";
 
 // Import css files
 import "slick-carousel/slick/slick.css";
@@ -9,6 +10,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { NextArrow, PrevArrow } from "./Arrows.component"
 
 const HeroCarousal = () => {
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+      const requestNowPlayingMovies = async() => {
+        const getImages = await axios.get("/movie/now_playing");
+        setImages(getImages.data.results);
+      };
+      requestNowPlayingMovies();
+    }, []);
+
     const settingsLg = {
         arrows: true,
         autoplay: true,
@@ -22,7 +34,7 @@ const HeroCarousal = () => {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />
     }
-
+    
     const settings = {
         arrows: true,
         autoplay: true,
@@ -35,13 +47,6 @@ const HeroCarousal = () => {
         prevArrow: <PrevArrow />
     };
 
-    const images = [
-        "https://wallpaperaccess.com/full/1099445.png",
-        "https://images8.alphacoders.com/108/1081458.jpg",
-        "https://i.ytimg.com/vi/lMEK-MgGxxA/maxresdefault.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/9/9c/One_punch_man_saitama.jpg",
-        "https://wallsdesk.com/wp-content/uploads/2016/11/death-note-HD.jpg"
-    ]
     
     return (
         <>
@@ -50,7 +55,7 @@ const HeroCarousal = () => {
             {
                 images.map((image) => (
                     <div className="w-full h-60 md:h-96 pt-3">
-                        <img src={image} alt={image} className="w-full h-full rounded-md"></img>
+                        <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt={image} className="w-full h-full rounded-md"></img>
                     </div>
                 ))
             }
@@ -62,7 +67,7 @@ const HeroCarousal = () => {
             {
                 images.map((image) => (
                     <div className="w-full h-96 px-2 pt-3">
-                        <img src={image} alt={image} className="w-full h-full rounded-md"></img>
+                        <img src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`} alt={image} className="w-full h-full rounded-md"></img>
                     </div>
                 ))
             }
