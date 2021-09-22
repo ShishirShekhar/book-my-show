@@ -165,6 +165,14 @@ const MovieDetail = (props) => {
     return (
         <>
         <div className="py-10 px-10 lg:px-52 flex flex-col gap-8">
+        <div className="container w-full h-full lg:hidden">
+            <div className="bg-red-600 rounded px-1 py-2 w-1/4 flex justify-center">
+                <p className="font-bold text-xl text-white cursor-pointer" onClick={lanuchRazorPay}>
+                    Book tickets
+                </p>
+            </div>
+        </div>
+
             <div className="flex flex-col gap-7 lg:w-3/4">
                 <h2 className="text-2xl font-bold">About the movie</h2>
                 <p>
